@@ -23,9 +23,13 @@ const wineSchema = new mongoose.Schema({
 
   winery: {
     // bodega
-    type: String,
-    required: true,
-    trim: true,
+    // Eso es lo que vimos antes
+    // type: String,
+    // required: true,
+    // trim: true,
+    // A continuación, es como lo tenemos que hacer
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Winery",
   },
 
   type: {
