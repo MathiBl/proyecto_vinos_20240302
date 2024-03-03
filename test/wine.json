@@ -1,0 +1,11 @@
+{
+  "id": "ES1234567890",
+  "name": "Villota",
+  "appellation": "DOCa Rioja",
+  "winery": "Villota",
+  "type": "red",
+  "vintage": "2021",
+  "grape": "Tempranillo, Graciano, Mazuelo",
+  "price": "20",
+  "tasting": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus efficitur purus in ex lobortis, sit amet facilisis nibh vehicula. Aliquam non bibendum elit. Phasellus fringilla ante at neque aliquam laoreet. Praesent nunc leo, cursus sit amet lacinia at, molestie vel turpis. Curabitur justo lacus, hendrerit id sodales ut, dapibus nec."
+}
