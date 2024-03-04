@@ -23,6 +23,11 @@ const winerySchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
+  winemaker: {
+    type: String,
+    // required: true,
+    trim: true,
+  },
 });
 
 const Winery = mongoose.model("Winery", winerySchema);

@@ -11,7 +11,7 @@ const { connectMongo } = require("./utils/db");
 // LLAMAMOS A LAS RUTAS
 const wineRouter = require("./src/routes/wine.routes");
 const wineryRouter = require("./src/routes/winery.routes");
-const userRouter = require("./src/routes/user.routes");
+// const userRouter = require("./src/routes/user.routes");
 
 const PORT = 3000;
 
@@ -42,7 +42,7 @@ app.use(express.urlencoded({ extended: true }));
 /* ROUTES */
 app.use("/wine", wineRouter);
 app.use("/winery", wineryRouter);
-app.use("/user", userRouter);
+// app.use("/user", userRouter);
 app.use(express.urlencoded({ extended: true }));
 
 // ruta de bienvenida

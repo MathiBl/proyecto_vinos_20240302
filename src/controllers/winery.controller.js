@@ -1,6 +1,6 @@
 // Un controlador va a tener todas las funciones que vamos a necesitar para devolver datos al usuario.
 
-const Winery = require("../model/winery.model");
+const Winery = require("../models/winery.model");
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
 
 // FUNCIONES CRUD (acrónimo de "Consultar, Crear, Actualizar y Borrar", que son las 4 cosas que se pueden hacer con una base de datos)
