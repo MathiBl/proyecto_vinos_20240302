@@ -10,7 +10,7 @@ const { connectMongo } = require("./utils/db");
 
 // LLAMAMOS A LAS RUTAS
 const wineRouter = require("./src/routes/wine.routes");
-// const userRouter = require("./src/routes/user.routes"); // Eso lo comento de momento, es lo que vimos hoy
+const userRouter = require("./src/routes/user.routes"); // Eso lo comento de momento, es lo que vimos hoy
 
 const PORT = 3000;
 
@@ -41,6 +41,7 @@ app.use(express.urlencoded({ extended: true }));
 /* ROUTES */
 app.use("/wine", wineRouter);
 // app.use(express.urlencoded({ extended: true })); //Eso también lo vimos hoy, lo comento de momento
+app.use("/user", userRouter);
 
 // ruta de bienvenida
 //Aquí tenemos una ruta y un mimi controlador, está todo junto.
