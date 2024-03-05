@@ -10,7 +10,11 @@ const { connectMongo } = require("./utils/db");
 
 // LLAMAMOS A LAS RUTAS
 const wineRouter = require("./src/routes/wine.routes");
+
 const userRouter = require("./src/routes/user.routes"); // Eso lo comento de momento, es lo que vimos hoy
+
+const wineryRouter = require("./src/routes/winery.routes");
+// const userRouter = require("./src/routes/user.routes");
 
 const PORT = 3000;
 
@@ -40,13 +44,18 @@ app.use(express.urlencoded({ extended: true }));
 
 /* ROUTES */
 app.use("/wine", wineRouter);
+
 // app.use(express.urlencoded({ extended: true })); //Eso también lo vimos hoy, lo comento de momento
 app.use("/user", userRouter);
 
+app.use("/winery", wineryRouter);
+// app.use("/user", userRouter);
+app.use(express.urlencoded({ extended: true }));
+
 // ruta de bienvenida
 //Aquí tenemos una ruta y un mimi controlador, está todo junto.
-app.get("/", (request, response) => {
-  response.status(200).json({
+app.get("/", (req, res) => {
+  res.status(200).json({
     message: "Welcome to my server",
     app: "My App",
   });
@@ -54,15 +63,15 @@ app.get("/", (request, response) => {
 
 /* MANEJO DE ERRORES */
 
-app.use((request, response, next) => {
+app.use((req, res, next) => {
   let error = new Error();
   error.status = 404;
   error.message = HTTPSTATUSCODE[404];
   next(error); // El next va a derivar el error y su tipo a su padre
 });
 
-app.use((error, request, response, next) => {
-  return response
+app.use((error, req, res, next) => {
+  return res
     .status(error.status || 500)
     .json(error.message || "Unexpected error");
 });
