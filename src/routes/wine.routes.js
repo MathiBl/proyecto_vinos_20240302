@@ -24,7 +24,7 @@ wineRouter.get("/:id", getWine);
 wineRouter.get("/", getWines);
 
 // CREAR UN VINO
-wineRouter.post("/", createWine);
+wineRouter.post("/", [isAuth], createWine);
 
 // ACTUALIZAR UN VINO
 // Tipo de petición: PATCH o PUT.
@@ -32,9 +32,9 @@ wineRouter.post("/", createWine);
 // PATCH: consiste en actualizar un recurso de forma parcial.
 // Para entender la diferencia entre los dos: https://www.geeksforgeeks.org/difference-between-put-and-patch-request/. Parece que PATCH da menos errores.
 
-wineRouter.patch("/:id", updateWine); // Si no le ponemos el ID al Endpoint, cambiaría todas los vinos.
+wineRouter.patch("/:id", [isAuth], updateWine); // Si no le ponemos el ID al Endpoint, cambiaría todas los vinos.
 
 // BORRAR UN VINO
-wineRouter.delete("/:id", deleteWine);
+wineRouter.delete("/:id", [isAuth], deleteWine);
 
 module.exports = wineRouter;
