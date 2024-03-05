@@ -14,6 +14,8 @@ const {
   deleteWinery,
 } = require("../controllers/winery.controller");
 
+const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
+
 // const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
 
 // LAS RUTAS
