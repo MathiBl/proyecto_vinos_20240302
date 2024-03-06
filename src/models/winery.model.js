@@ -28,6 +28,12 @@ const winerySchema = new mongoose.Schema({
     // required: true,
     trim: true,
   },
+
+  wines: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Wine",
+    required: false,
+  }],
 });
 
 const Winery = mongoose.model("Winery", winerySchema);
