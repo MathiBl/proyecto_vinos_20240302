@@ -4,7 +4,6 @@ const favoritesSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-
   wines: [
     {
       type: mongoose.Schema.Types.ObjectId,

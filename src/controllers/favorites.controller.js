@@ -1,17 +1,11 @@
 // Un controlador va a tener todas las funciones que vamos a necesitar para devolver datos al usuario.
 
 const Favorites = require("../models/favorites.model");
-// const Contributor = require("../model/contributor.model"); // Eso de momento lo comento, a ver si nos sirve
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
 const Wine = require("../models/wine.model");
 
-// FUNCIONES CRUD (acrónimo de "Consultar, Crear, Actualizar y Borrar", que son las 4 cosas que se pueden hacer con una base de datos)
-
-// CONSULTAR...
-// ...UN VINO
 const addWine = async (req, res, next) => {
   try {
-    // 1. OBTENGO LA ID QUE HA SOLICITADO EL USUARIO
     const userId = req.params.userId;
     const wine = new Wine(req.body);
     const favorite = Favorites.findOne({ userId: userId });
@@ -24,8 +18,7 @@ const addWine = async (req, res, next) => {
       newFavorite.save();
     }
 
-    // 2. BUSCO EN LA BBDD POR ID
-    // 3. RESPONDO AL USUARIO
+    // RESPONDO AL USUARIO
     res.status(201).json({
       status: 201,
       message: HTTPSTATUSCODE[201],
@@ -39,7 +32,8 @@ const addWine = async (req, res, next) => {
 const getWinesByUser = async (req, res, next) => {
   //1. Obtener el userId
   //2. Buscar el favorito que tiene ese userId
-  // 3. Devolver al usuario el parámetro Wines
+  //3. Devolver al usuario el parámetro Wines
+  // Hacerlo con try catch
 };
 
 modules.export = { addWine };
