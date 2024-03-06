@@ -45,10 +45,12 @@ app.use(express.urlencoded({ extended: true }));
 /* ROUTES */
 app.use("/wine", wineRouter);
 
-// app.use(express.urlencoded({ extended: true })); //Eso también lo vimos hoy, lo comento de momento
 app.use("/user", userRouter);
 
 app.use("/winery", wineryRouter);
+
+app.use("/favorites", favoritesRouter);
+
 // app.use("/user", userRouter);
 app.use(express.urlencoded({ extended: true }));
 
