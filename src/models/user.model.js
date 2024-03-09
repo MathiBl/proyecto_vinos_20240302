@@ -5,15 +5,15 @@ const salt = 10;
 const userSchema = new mongoose.Schema({
   name: { type: String, unique: true, trim: true, required: true },
   password: { type: String, trim: true, required: true },
-  email: {
-    type: String,
-    unique: true,
-    required: [true, "Email address is required"],
-    validate: {
-      validator: validatorPackage.isEmail,
-      message: "Please provide a valid email",
-    },
-  },
+  // email: {
+  //   type: String,
+  //   unique: true,
+  //   required: [true, "Email address is required"],
+  //   validate: {
+  //     validator: validatorPackage.isEmail,
+  //     message: "Please provide a valid email",
+  //   },
+  // },
 });
 
 userSchema.pre("save", (next) => {

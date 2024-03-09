@@ -11,10 +11,11 @@ const { connectMongo } = require("./utils/db");
 // LLAMAMOS A LAS RUTAS
 const wineRouter = require("./src/routes/wine.routes");
 
-const userRouter = require("./src/routes/user.routes"); // Eso lo comento de momento, es lo que vimos hoy
+const userRouter = require("./src/routes/user.routes");
 
 const wineryRouter = require("./src/routes/winery.routes");
-// const userRouter = require("./src/routes/user.routes");
+
+const favoritesRouter = require("./src/routes/favorites.routes");
 
 const PORT = 3000;
 
@@ -50,6 +51,8 @@ app.use("/user", userRouter);
 app.use("/winery", wineryRouter);
 
 app.use("/favorites", favoritesRouter);
+
+//65ec577d266f51555664de89
 
 // app.use("/user", userRouter);
 app.use(express.urlencoded({ extended: true }));

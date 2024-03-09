@@ -1,3 +1,5 @@
+const mongoose = require("mongoose");
+
 const favoritesSchema = new mongoose.Schema({
   userId: {
     type: String,
