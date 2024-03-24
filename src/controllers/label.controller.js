@@ -1,6 +1,7 @@
-const Label = require("../model/label.model");
+const Label = require("../models/label.model");
 const HTTPSTATUSCODE = require("../../utils/httpStatusCode");
 
+// -- CONSULTAR UNA ETIQUETA
 const getLabel = async (req, res, next) => {
   try {
     const id = req.params.id;
@@ -15,7 +16,7 @@ const getLabel = async (req, res, next) => {
   }
 };
 
-// -- TODAS LAS ETIQUETAS
+// -- CONSULTAR TODAS LAS ETIQUETAS
 const getLabels = async (req, res, next) => {
   try {
     const label = await Label.find();
@@ -29,15 +30,16 @@ const getLabels = async (req, res, next) => {
   }
 };
 
+// -- CREAR UNA ETIQUETA
 const createLabel = async (req, res, next) => {
   try {
-    const { upc, name, wines } = req.body;
+    const { id, name, wines } = req.body;
     const cover = req.file ? req.file.filename : null;
     const label = new Label({
       id,
       name,
       wines,
-      cover: cover,
+      data: label,
     });
     await label.save();
     res.status(201).json({
@@ -50,6 +52,7 @@ const createLabel = async (req, res, next) => {
   }
 };
 
+// -- ACTUALIZAR UNA ETIQUETA
 const updateLabel = async (req, res, next) => {
   try {
     const id = req.params.id;
@@ -71,6 +74,7 @@ const updateLabel = async (req, res, next) => {
   }
 };
 
+// -- BORRAR UNA ETIQUETA
 const deleteLabel = async (req, res, next) => {
   try {
     const id = req.params.id;
@@ -80,7 +84,6 @@ const deleteLabel = async (req, res, next) => {
       return res.status(404).json({
         status: 404,
         message: HTTPSTATUSCODE[404],
-        data: label,
       });
     }
 

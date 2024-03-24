@@ -14,9 +14,7 @@ const {
   deleteWinery,
 } = require("../controllers/winery.controller");
 
-// const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
-
-// const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
+const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
 
 // LAS RUTAS
 //nombreDelRouter.tipoDePetición('endpoint', <nombreDeLaFunciónQueVaAResolverEseEndpoint>);
@@ -30,7 +28,7 @@ wineryRouter.get("/:id", getWinery);
 wineryRouter.get("/", getWineries);
 
 // CREAR UNA BODEGA
-wineryRouter.post("/", /*[isAuth],*/ createWinery);
+wineryRouter.post("/", [isAuth], createWinery);
 
 // ACTUALIZAR UNA BODEGA
 // Tipo de petición: PATCH o PUT.
@@ -38,10 +36,10 @@ wineryRouter.post("/", /*[isAuth],*/ createWinery);
 // PATCH: consiste en actualizar un recurso de forma parcial.
 // Para entender la diferencia entre los dos: https://www.geeksforgeeks.org/difference-between-put-and-patch-request/. Parece que PATCH da menos errores.
 
-wineryRouter.patch("/:id", /*[isAuth],*/ updateWinery); // Si no le ponemos el ID al Endpoint, cambiaría todas las bodegas.
+wineryRouter.patch("/:id", [isAuth], updateWinery); // Si no le ponemos el ID al Endpoint, cambiaría todas las bodegas.
 
 // BORRAR UNA BODEGA
-wineryRouter.delete("/:id", /*[isAuth],*/ deleteWinery);
+wineryRouter.delete("/:id", [isAuth], deleteWinery);
 
 module.exports = wineryRouter; // Eso es para poner el wineryRouter a la disposición del resto de la app.
 

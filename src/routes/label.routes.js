@@ -6,17 +6,15 @@ const {
   createLabel,
   updateLabel,
   deleteLabel,
-} = require("../controller/label.controller");
+} = require("../controllers/label.controller");
 
 const { upload } = require("../middlewares/file.middleware");
-// const { isAuth } = require('../middlewares/auth.middleware');
+const { isAuth } = require('../middlewares/auth.middleware');
 
 labelRouter.get("/:id", getLabel);
 labelRouter.get("/", getLabels);
 labelRouter.post("/", [upload.single("cover")], createLabel);
-// labelRouter.patch('/:id', [isAuth], updateLabel);
-labelRouter.patch("/:id", updateLabel);
-// labelRouter.delete('/:id', [isAuth], deleteLabel);
-labelRouter.delete("/:id", deleteLabel);
+labelRouter.patch('/:id', [isAuth], updateLabel);
+labelRouter.delete('/:id', [isAuth], deleteLabel);
 
 module.exports = labelRouter;

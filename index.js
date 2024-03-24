@@ -11,9 +11,10 @@ const { connectMongo } = require("./utils/db");
 // LLAMAMOS A LAS RUTAS
 const wineRouter = require("./src/routes/wine.routes");
 
-const userRouter = require("./src/routes/user.routes"); // Eso lo comento de momento, es lo que vimos hoy
+const userRouter = require("./src/routes/user.routes");
 
 const wineryRouter = require("./src/routes/winery.routes");
+const labelRouter = require("./src/routes/label.routes");
 // const userRouter = require("./src/routes/user.routes");
 
 const PORT = 3000;
@@ -49,6 +50,8 @@ app.use("/wine", wineRouter);
 app.use("/user", userRouter);
 
 app.use("/winery", wineryRouter);
+
+app.use("/label", labelRouter);
 
 // app.use("/favorites", favoritesRouter); // COMENTAMOS ESA FUNCIÓN QUE NO FUNCIONA DE MOMENTO
 
