@@ -14,7 +14,7 @@ const {
   deleteWine,
 } = require("../controllers/wine.controller");
 
-const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
+// const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
 
 // LAS RUTAS
 //nombreDelRouter.tipoDePetición('endpoint', <nombreDeLaFunciónQueVaAResolverEseEndpoint>);
@@ -26,7 +26,8 @@ wineRouter.get("/:id", getWine);
 wineRouter.get("/", getWines);
 
 // CREAR UN VINO
-wineRouter.post("/", [isAuth], createWine);
+// wineRouter.post("/", [isAuth], createWine);
+wineRouter.post("/", createWine);
 
 // ACTUALIZAR UN VINO
 // Tipo de petición: PATCH o PUT.
@@ -34,9 +35,11 @@ wineRouter.post("/", [isAuth], createWine);
 // PATCH: consiste en actualizar un recurso de forma parcial.
 // Para entender la diferencia entre los dos: https://www.geeksforgeeks.org/difference-between-put-and-patch-request/. Parece que PATCH da menos errores.
 
-wineRouter.patch("/:id", [isAuth], updateWine); // Si no le ponemos el ID al Endpoint, cambiaría todas los vinos.
+// wineRouter.patch("/:id", [isAuth], updateWine); // Si no le ponemos el ID al Endpoint, cambiaría todas los vinos.
+wineRouter.patch("/:id", updateWine); // Si no le ponemos el ID al Endpoint, cambiaría todas los vinos.
 
 // BORRAR UN VINO
-wineRouter.delete("/:id", [isAuth], deleteWine);
+// wineRouter.delete("/:id", [isAuth], deleteWine);
+wineRouter.delete("/:id", deleteWine);
 
 module.exports = wineRouter;

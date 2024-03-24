@@ -38,9 +38,10 @@ app.use(
 );
 
 // SI USÁRAMOS CORS PARA RESTRINGIR ACCESOS, SERÍA ASÍ.
-app.use(cors());
+app.use(cors()); // sin restricciones
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// FALTA app.set("secretKey")
 
 /* ROUTES */
 app.use("/wine", wineRouter);
@@ -49,7 +50,7 @@ app.use("/user", userRouter);
 
 app.use("/winery", wineryRouter);
 
-app.use("/favorites", favoritesRouter);
+// app.use("/favorites", favoritesRouter); // COMENTAMOS ESA FUNCIÓN QUE NO FUNCIONA DE MOMENTO
 
 // app.use("/user", userRouter);
 app.use(express.urlencoded({ extended: true }));

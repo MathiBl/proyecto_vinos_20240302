@@ -6,9 +6,12 @@ const express = require("express");
 const favoritesRouter = express.Router();
 
 // Instanciamos al controlador para usar las funciones relativas a cada ruta.
-const { addWine, getWinesByUser } = require("../controllers/favorites.controller");
+const {
+  addWine,
+  getWinesByUser,
+} = require("../controllers/favorites.controller");
 
-const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
+// const { isAuth } = require("../middlewares/auth.middleware"); // Llamamos a la función de autentificación que servirá de policía (definir quién entra y quién no).
 
 // LAS RUTAS
 //nombreDelRouter.tipoDePetición('endpoint', <nombreDeLaFunciónQueVaAResolverEseEndpoint>);
